@@ -1,6 +1,6 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Controller;
 
-import com.piotrwasilewski420.allegrosummerexperience2022.Entity.ApiResponseForRepos;
+import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.ApiResponseForRepos;
 import com.piotrwasilewski420.allegrosummerexperience2022.Service.fetchingReposService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

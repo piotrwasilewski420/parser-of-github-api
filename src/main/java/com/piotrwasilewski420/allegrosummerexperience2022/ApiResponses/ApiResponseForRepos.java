@@ -1,4 +1,4 @@
-package com.piotrwasilewski420.allegrosummerexperience2022.Entity;
+package com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

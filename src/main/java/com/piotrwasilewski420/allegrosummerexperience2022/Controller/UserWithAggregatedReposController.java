@@ -1,6 +1,6 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Controller;
 
-import com.piotrwasilewski420.allegrosummerexperience2022.Entity.ApiResponseForUserWithAggregatedRepos;
+import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.ApiResponseForUserWithAggregatedRepos;
 import com.piotrwasilewski420.allegrosummerexperience2022.Service.fetchingReposService;
 import com.piotrwasilewski420.allegrosummerexperience2022.Service.fetchingUserDataService;
 import lombok.RequiredArgsConstructor;

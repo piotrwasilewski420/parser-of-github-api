@@ -1,4 +1,4 @@
-package com.piotrwasilewski420.allegrosummerexperience2022.Entity;
+package com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses;
 
 import lombok.Data;
 

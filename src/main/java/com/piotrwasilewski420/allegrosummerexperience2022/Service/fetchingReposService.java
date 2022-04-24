@@ -1,8 +1,9 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Service;
 
+import com.piotrwasilewski420.allegrosummerexperience2022.Credentials.CredentialsVault;
 import com.piotrwasilewski420.allegrosummerexperience2022.DTO.GithubApiRepositoriesResponseDTO;
-import com.piotrwasilewski420.allegrosummerexperience2022.Entity.ApiResponseForRepos;
-import com.piotrwasilewski420.allegrosummerexperience2022.Entity.Language;
+import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.ApiResponseForRepos;
+import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.Language;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -13,21 +14,28 @@ import java.util.*;
 @RequiredArgsConstructor
 public class fetchingReposService {
     private final WebClient webClient;
-
+    private String username = CredentialsVault.USERNAME;
+    private String password = CredentialsVault.PASSWORD;
     public List<GithubApiRepositoriesResponseDTO> getRepos(String githubUsername){
         GithubApiRepositoriesResponseDTO[] response;
         response = webClient.get()
                 .uri("https://api.github.com/users/"+ githubUsername +"/repos")
+                .headers(headers -> headers.setBasicAuth(username, password))
                 .retrieve()
                 .bodyToMono(GithubApiRepositoriesResponseDTO[].class)
                 .block();
-        return Arrays.stream(response).toList();
+        if (response == null){
+            return new ArrayList<>();
+        } else {
+            return Arrays.stream(response).toList();
+        }
     }
 
     public Map<String, Integer> getLanguagesFromResponseDTO(GithubApiRepositoriesResponseDTO response){
         Map<String,Integer> languageMap;
         languageMap = webClient.get()
                 .uri(response.getLanguagesUri())
+                .headers(headers -> headers.setBasicAuth(username, password))
                 .retrieve()
                 .bodyToMono(HashMap.class)
                 .block();
@@ -46,11 +54,9 @@ public class fetchingReposService {
                 Language language = new Language();
                 language.setLangName(name);
                 language.setBytes(bytes);
-                System.out.println(language);
                 finalLanguageList.add(language);
                 apiResponseForRepos.setLanguages(finalLanguageList);
             });
-            System.out.println(apiResponse);
             apiResponse.add(apiResponseForRepos);
         });
        return apiResponse;
