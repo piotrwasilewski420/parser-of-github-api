@@ -24,11 +24,7 @@ public class fetchingReposService {
                 .retrieve()
                 .bodyToMono(GithubApiRepositoriesResponseDTO[].class)
                 .block();
-        if (response == null){
-            return new ArrayList<>();
-        } else {
             return Arrays.stream(response).toList();
-        }
     }
 
     public Map<String, Integer> getLanguagesFromResponseDTO(GithubApiRepositoriesResponseDTO response){
@@ -50,9 +46,9 @@ public class fetchingReposService {
             ApiResponseForRepos apiResponseForRepos = new ApiResponseForRepos();
             apiResponseForRepos.setRepoName(element.getName());
             Map<String,Integer> mapOfLanguages = getLanguagesFromResponseDTO(element);
-            if (mapOfLanguages.isEmpty()){
-                apiResponseForRepos.setLanguages(new ArrayList<>());
-            } else {
+//            if (mapOfLanguages.isEmpty()){
+//                apiResponseForRepos.setLanguages(new ArrayList<>());
+//            } else {
                 mapOfLanguages.forEach((name, bytes) -> {
                     Language language = new Language();
                     language.setLangName(name);
@@ -61,7 +57,7 @@ public class fetchingReposService {
                     apiResponseForRepos.setLanguages(finalLanguageList);
                 });
                 apiResponse.add(apiResponseForRepos);
-            }
+//            }
     });
     return apiResponse;
     }
