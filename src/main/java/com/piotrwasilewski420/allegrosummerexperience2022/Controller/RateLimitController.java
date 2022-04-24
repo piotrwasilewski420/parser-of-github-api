@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RateLimitController {
     private final FindingRateLimitService rateLimitService;
 
-    @GetMapping("/test")
+    @GetMapping("/rate_limit")
     public ResponseEntity getRateLimit(){
         Object rateLimit = rateLimitService.getRateLimit();
         return new ResponseEntity(rateLimit, HttpStatus.OK);

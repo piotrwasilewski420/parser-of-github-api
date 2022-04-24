@@ -20,7 +20,6 @@ public class FindingRateLimitService {
                 .retrieve()
                 .bodyToMono(Object.class)
                 .block();
-        System.out.println(rateLimitDTO);
         return rateLimitDTO;
     }
 }

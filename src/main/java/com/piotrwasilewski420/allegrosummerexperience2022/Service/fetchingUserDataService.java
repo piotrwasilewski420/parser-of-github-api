@@ -16,7 +16,7 @@ public class fetchingUserDataService {
     public GithubApiUserDataResponseDTO getUserInfo(String username) {
         GithubApiUserDataResponseDTO dataResponseDTO;
         dataResponseDTO = webClient.get()
-                .uri("https://api.github.com/users/Vengardd")
+                .uri("https://api.github.com/users/"+username)
                 .headers(headers -> headers.setBasicAuth(username, password))
                 .retrieve()
                 .bodyToMono(GithubApiUserDataResponseDTO.class)
@@ -28,7 +28,11 @@ public class fetchingUserDataService {
         UserInfo userInfo = new UserInfo();
         GithubApiUserDataResponseDTO dataResponseDTO = getUserInfo(githubUsername);
         userInfo.setLogin(dataResponseDTO.getLogin());
-        userInfo.setBio(dataResponseDTO.getBio());
+        if(dataResponseDTO.getBio()!=null) {
+            userInfo.setBio(dataResponseDTO.getBio());
+        } else {
+            userInfo.setBio("");
+        }
         response.setUserInfo(userInfo);
         return response;
     }

@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserWithAggregatedReposController {
     private final fetchingUserDataService userDataService;
     private final fetchingReposService reposService;
-    @GetMapping("/{githubUsername}")
-    public ResponseEntity getUserWithAggregatedInfo(@PathVariable String githubUsername){
-        ApiResponseForUserWithAggregatedRepos response = userDataService.composeResponse(githubUsername);
+    @GetMapping("/{githubusername}")
+    public ResponseEntity getUserWithAggregatedInfo(@PathVariable String githubusername){
+        System.out.println(githubusername);
+        ApiResponseForUserWithAggregatedRepos response = userDataService.composeResponse(githubusername);
         //adding repositories to user_info
-        response.setRepositories(reposService.composeApiResponseFromRepoAndLanguages(githubUsername));
+        response.setRepositories(reposService.composeApiResponseFromRepoAndLanguages(githubusername));
     return new ResponseEntity(response, HttpStatus.OK);
     }
 }

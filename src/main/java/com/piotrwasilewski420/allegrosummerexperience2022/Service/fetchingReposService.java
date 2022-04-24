@@ -50,15 +50,19 @@ public class fetchingReposService {
             ApiResponseForRepos apiResponseForRepos = new ApiResponseForRepos();
             apiResponseForRepos.setRepoName(element.getName());
             Map<String,Integer> mapOfLanguages = getLanguagesFromResponseDTO(element);
-            mapOfLanguages.forEach((name,bytes) -> {
-                Language language = new Language();
-                language.setLangName(name);
-                language.setBytes(bytes);
-                finalLanguageList.add(language);
-                apiResponseForRepos.setLanguages(finalLanguageList);
-            });
-            apiResponse.add(apiResponseForRepos);
-        });
-       return apiResponse;
+            if (mapOfLanguages.isEmpty()){
+                apiResponseForRepos.setLanguages(new ArrayList<>());
+            } else {
+                mapOfLanguages.forEach((name, bytes) -> {
+                    Language language = new Language();
+                    language.setLangName(name);
+                    language.setBytes(bytes);
+                    finalLanguageList.add(language);
+                    apiResponseForRepos.setLanguages(finalLanguageList);
+                });
+                apiResponse.add(apiResponseForRepos);
+            }
+    });
+    return apiResponse;
     }
 }
