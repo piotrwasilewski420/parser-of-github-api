@@ -18,6 +18,7 @@ public class UserWithAggregatedReposController {
     @GetMapping("/{githubUsername}")
     public ResponseEntity getUserWithAggregatedInfo(@PathVariable String githubUsername){
         ApiResponseForUserWithAggregatedRepos response = userDataService.composeResponse(githubUsername);
+        //adding repositories to user_info
         response.setRepositories(reposService.composeApiResponseFromRepoAndLanguages(githubUsername));
     return new ResponseEntity(response, HttpStatus.OK);
     }

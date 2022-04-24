@@ -1,12 +1,14 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 
 import java.util.List;
 @Data
+@JsonPropertyOrder({ "user_info", "repositories"})
 public class ApiResponseForUserWithAggregatedRepos {
-    private String login;
-    private String name;
-    private String bio;
+    @JsonProperty("user_info")
+    private UserInfo userInfo;
     private List<ApiResponseForRepos> repositories;
 }

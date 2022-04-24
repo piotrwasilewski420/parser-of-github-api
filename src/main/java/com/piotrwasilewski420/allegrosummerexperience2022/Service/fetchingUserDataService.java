@@ -2,6 +2,7 @@ package com.piotrwasilewski420.allegrosummerexperience2022.Service;
 
 import com.piotrwasilewski420.allegrosummerexperience2022.DTO.GithubApiUserDataResponseDTO;
 import com.piotrwasilewski420.allegrosummerexperience2022.Entity.ApiResponseForUserWithAggregatedRepos;
+import com.piotrwasilewski420.allegrosummerexperience2022.Entity.UserInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -20,9 +21,11 @@ public class fetchingUserDataService {
     }
     public ApiResponseForUserWithAggregatedRepos composeResponse(String githubUsername){
         ApiResponseForUserWithAggregatedRepos response = new ApiResponseForUserWithAggregatedRepos();
+        UserInfo userInfo = new UserInfo();
         GithubApiUserDataResponseDTO dataResponseDTO = getUserInfo(githubUsername);
-        response.setLogin(dataResponseDTO.getLogin());
-        response.setBio(dataResponseDTO.getBio());
+        userInfo.setLogin(dataResponseDTO.getLogin());
+        userInfo.setBio(dataResponseDTO.getBio());
+        response.setUserInfo(userInfo);
         return response;
     }
 }
