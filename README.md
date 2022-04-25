@@ -24,7 +24,7 @@ If a language used in a repo is not listed in [here](https://github.com/github/l
 
 ### Core Technologies
 
-1.  Java 11
+1.  Java 17
 2.  Spring Boot 5
 3.  WebClient
 4.  Github API
