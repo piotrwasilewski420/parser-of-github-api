@@ -20,11 +20,4 @@ public class ControllerAdvisor {
         error.setMessageName(exception.getMessage());
         return error;
     }
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @ExceptionHandler(WebClientResponseException.class)
-//    protected ApiError handleWebClientResponseException(WebClientResponseException exception){
-//        ApiError error = new ApiError();
-//        error.setMessageName(exception.getMessage());
-//        return error;
-//    }
 }
