@@ -72,7 +72,7 @@
                     <source>17</source>
                     <target>17</target>
                     <fork>true</fork>
-                    <executable>/usr/lib/jvm/java-11-openjdk-amd64/bin/javac</executable>
+
                 </configuration>
             </plugin>
         </plugins>

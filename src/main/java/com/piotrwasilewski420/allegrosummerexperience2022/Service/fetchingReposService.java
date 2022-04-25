@@ -1,18 +1,23 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Service;
 
+import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.UserInfo;
 import com.piotrwasilewski420.allegrosummerexperience2022.Credentials.CredentialsVault;
 import com.piotrwasilewski420.allegrosummerexperience2022.DTO.GithubApiRepositoriesResponseDTO;
 import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.ApiResponseForRepos;
 import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.Language;
 import lombok.RequiredArgsConstructor;
+
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 @Service
 @RequiredArgsConstructor
 public class fetchingReposService {
+
     private final WebClient webClient;
     private String username = CredentialsVault.USERNAME;
     private String password = CredentialsVault.PASSWORD;
@@ -46,9 +51,6 @@ public class fetchingReposService {
             ApiResponseForRepos apiResponseForRepos = new ApiResponseForRepos();
             apiResponseForRepos.setRepoName(element.getName());
             Map<String,Integer> mapOfLanguages = getLanguagesFromResponseDTO(element);
-//            if (mapOfLanguages.isEmpty()){
-//                apiResponseForRepos.setLanguages(new ArrayList<>());
-//            } else {
                 mapOfLanguages.forEach((name, bytes) -> {
                     Language language = new Language();
                     language.setLangName(name);
@@ -57,7 +59,6 @@ public class fetchingReposService {
                     apiResponseForRepos.setLanguages(finalLanguageList);
                 });
                 apiResponse.add(apiResponseForRepos);
-//            }
     });
     return apiResponse;
     }

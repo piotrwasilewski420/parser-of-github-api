@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 @Data
 public class UserInfo {
-    private String login;
     private String name;
+    private String login;
     private String bio;
 }
