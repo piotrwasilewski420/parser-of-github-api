@@ -1,9 +1,7 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Service;
 
-import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.ApiResponseForUserWithAggregatedRepos;
-import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.UserInfo;
+import com.piotrwasilewski420.allegrosummerexperience2022.DTO.UserInfo;
 import com.piotrwasilewski420.allegrosummerexperience2022.Credentials.CredentialsVault;
-import com.piotrwasilewski420.allegrosummerexperience2022.DTO.GithubApiRepositoriesResponseDTO;
 import com.piotrwasilewski420.allegrosummerexperience2022.DTO.GithubApiUserDataResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

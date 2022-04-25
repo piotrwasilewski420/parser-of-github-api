@@ -1,18 +1,15 @@
 package com.piotrwasilewski420.allegrosummerexperience2022.Service;
 
-import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.UserInfo;
 import com.piotrwasilewski420.allegrosummerexperience2022.Credentials.CredentialsVault;
 import com.piotrwasilewski420.allegrosummerexperience2022.DTO.GithubApiRepositoriesResponseDTO;
 import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.ApiResponseForRepos;
-import com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses.Language;
+import com.piotrwasilewski420.allegrosummerexperience2022.DTO.Language;
 import lombok.RequiredArgsConstructor;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.*;
-import java.util.logging.Logger;
 
 @Service
 @RequiredArgsConstructor

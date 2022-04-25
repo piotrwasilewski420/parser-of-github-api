@@ -1,4 +1,4 @@
-package com.piotrwasilewski420.allegrosummerexperience2022.ApiResponses;
+package com.piotrwasilewski420.allegrosummerexperience2022.DTO;
 
 
 import lombok.Data;
