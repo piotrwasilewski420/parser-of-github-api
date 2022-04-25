@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.piotrwasilewski420.allegrosummerexperience2022.AllegroSummerExperience2022ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.895 s - in com.piotrwasilewski420.allegrosummerexperience2022.AllegroSummerExperience2022ApplicationTests
