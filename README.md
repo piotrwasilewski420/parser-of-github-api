@@ -16,6 +16,10 @@ Github Repo Reader is a back-end application written in Java that thanks to Gith
 
 Due to Github API's rate limitations concerning the amount of times an unathenticated user can request data from the server there were some assumptions that had to be made. User that is not authenticated can access data from the API only 60 times per hour. That amount of requests wouldn't be enough to read data for a larger number of repositories. In my application every request to the Github API contains an authorization header that contains both a valid github username and verification token stored in a Java class Credentials.java. **This solution is used only for simplicity sakes and would not be allowed in real business/production scenario because it is a serious security threat.** To fully secure this kind of permament credentials they should be kept in a [Vault](https://spring.io/projects/spring-vault) or other auth protocols such as [OAUth2](https://oauth.net/2/) are to be used. With the current approach a 5000 requests can be made from one IP adress within an hour.
 
+##### Already compiled project
+
+Project has been already compiled and contains a target folder with already compiled project with all of dependencies. I chose this solution because it avoids all the problems with lack of Maven or incompatible version on java installed on the machine of reviewer.
+
 ##### Repos with no detectable languages
 
 If a language used in a repo is not listed in [here](https://github.com/github/linguist/tree/master/samples) that means that languages array will be shown as "null". The same issue may happen to the repositories that are empty.
