@@ -34,9 +34,9 @@ If a language used in a repo is not listed in [here](https://github.com/github/l
 
 ### Installation
 
-1. In order to test the application you need to ensure that docker is locally installed on your machine. Run `docker -v` to find it out.
+1. In order to test the application you need to ensure that docker is locally installed on your machine. Run `docker -v` to find it out. **If you are not pulling the image from docker hub make sure your $JAVA_HOME is linked to jdk 17+ version in order to build a project with `mvn clean package` if you have any problems with this command simply run `docker pull .piotrwasilewski420/allegro-summer-experience-2022` tp pull a complete image form dockerhub**
 2. Once you are sure docker is installed clone repository `git clone https://github.com/piotrwasilewski420/allegro-summer-experience-2022.git` and go to the project folder.
-3. Once you are in the project folder run the following command to build the project with all the dependencies `mvn clean package`. (`.jar` file inside of a taret folder).
+3. Once you are in the project folder run the following command to build the project with all the dependencies `mvn clean package`. (`.jar` file inside of a target folder).
 4. Then execute command `docker build --tag=piotrwasilewski420/allegro-summer-experience-2022 . ` to build a docker image. Alternatively run `docker pull piotrwasilewski420/allegro-summer-experience-2022` to pull the docker image from the repository.
 5. Last step is to run `docker run -p $PORT:8080 piotrwasilewski420/allegro-summer-experience-2022` to run the app as a container. You have to substitute $PORT with a port number that is not occupied on your local machine. For example if you want this app to run on your local port 8080 run                                        `docker run -p 8080:8080 piotrwasilewski420/allegro-summer-experience-2022` in your console/terminal.
 
